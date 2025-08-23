@@ -17,7 +17,11 @@ int main() {
     // Cadastro das Cartas:
     // Sugestão: Utilize a função scanf para capturar as entradas do usuário para cada atributo.
     printf("############ SUPER TRUNFO ##########\n\n");
-    printf("Entre com os dados da Carta 1:");
+    printf("Entre com os dados da Carta 1: \n");
+    printf("Código da Cidade: ");
+    scanf("%c",&codigo );
+    printf("codigo digitado: %c\n",codigo);
+
     // Solicite ao usuário que insira as informações de cada cidade, como o código, nome, população, área, etc.
     // Exibição dos Dados das Cartas:
     // Sugestão: Utilize a função printf para exibir as informações das cartas cadastradas de forma clara e organizada.
