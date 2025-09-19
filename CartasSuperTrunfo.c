@@ -9,26 +9,29 @@
 int main() {
     // Sugestão: Defina variáveis separadas para cada atributo da cidade
     // Exemplos de atributos: código da cidade, nome, população, área, PIB, número de pontos turísticos.
-
-    int populacao1 = 0;
+    int a = 1;
+    int b = 2;
+    unsigned long int populacao1 = 0;
     int n_pontos_turisticos1 = 0;
     float area1 = 0.0;
     float PIB1 = 0.0;
     float densidade_populacional1 = 0.0;
     float renda_pcapita1 = 0.0;
-    char codigo_estado1 = "";
-    char nome_cidade1[20] = "";
+    char codigo_estado1 = 'a';
+    char nome_cidade1[20] = " ";
     char codigo_carta1[5] = "A01";
+    float superpoder1 = 0.0;
 
-    int populacao2 = 0;
+    unsigned long int populacao2 = 0;
     int n_pontos_turisticos2 = 0;
     float area2 = 0.0;
     float PIB2 = 0.0;
     float densidade_populacional2 = 0.0;
     float renda_pcapita2 = 0.0;
-    char codigo_estado2 = "";
+    char codigo_estado2 = 'a';
     char nome_cidade2[20] = "";
     char codigo_carta2[5] = "A01";
+    float superpoder2 = 0.0;
 
     // Cadastro das Cartas:
     // Sugestão: Utilize a função scanf para capturar as entradas do usuário para cada atributo.
@@ -50,6 +53,7 @@ int main() {
     scanf("%d",&n_pontos_turisticos1);
     printf("PIB : \n");
     scanf("%f",&PIB1);
+    
 
     printf("############ SUPER TRUNFO ##########\n\n");
     printf("Entre com os dados da Carta 2: \n");
@@ -73,9 +77,16 @@ int main() {
 
     densidade_populacional1 = (float)populacao1/area1;
     densidade_populacional2 = (float)populacao2/area2;
+    
     renda_pcapita1 = (float) PIB1/populacao1;
     renda_pcapita2 = (float) PIB2/populacao2;
-
+    
+    // Cálculo Superpoder
+    
+    superpoder1 = (float)populacao1 + area1 + (float)n_pontos_turisticos1 + renda_pcapita1 + (1/densidade_populacional1);
+    
+    superpoder2 = (float)populacao1 + area1 + (float)n_pontos_turisticos1 + renda_pcapita1 + (1/densidade_populacional1);
+    
     // Exibição dos Dados das Cartas:
     // Sugestão: Utilize a função printf para exibir as informações das cartas cadastradas de forma clara e organizada.
     // Exiba os valores inseridos para cada atributo da cidade, um por linha.
@@ -101,6 +112,18 @@ int main() {
     printf("\nNúmero de Pontos Turísticos: %d ", n_pontos_turisticos2);
     printf("\nDensidade Populacional: %.2f", densidade_populacional2);
     printf("\nRenda Per Capita: %.2f", renda_pcapita2);
+
+    //Comparação entre as cartas
+
+    printf("\n\nCARTA VENCEDORA - SE ""CARTA 1 VENCEU"" FOR IGUAL A ZERO CARTA 2 VENCE");
+    printf("\n\nPopulação: Carta 1 Venceu %d ",(populacao1 > populacao2));
+    printf("\nÁrea: Carta 1 Venceu %d ",(area1 > area2));
+    printf("\nPIB: Carta 1 Venceu %d ", (PIB1 > PIB2));
+    printf("\nNúmero de Pontos Turísticos: Carta 1 Venceu %d ", (n_pontos_turisticos1 > n_pontos_turisticos2));
+    printf("\nDensidade Populacional: Carta 1 Venceu  %d",(densidade_populacional1 > densidade_populacional2));
+    printf("\nRenda Per Capita: Carta 1 Venceu %d", (renda_pcapita1 > renda_pcapita2));
+    printf("\nSuperPoder: Carta 1 Venceu %d", (superpoder1>superpoder2));
+
 
     return 0;
 }
